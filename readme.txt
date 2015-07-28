@@ -1,10 +1,10 @@
 === Weptile Image Slider Widget ===
-Contributors: weptile, jrds
+Contributors: weptile, yigitnerukuc, ufukerdogmus, onurure, jrds
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WQ5TC9J9UWALN
 Tags: image, slider, widget, slideshow, nivo, sidebar, rotator, responsive
 Requires at least: 3.3
-Tested up to: 3.9.1
-Stable tag: 1.1.0
+Tested up to: 4.2.2
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,24 +23,47 @@ You can use multiple sliders on multiple sidebars on the same page.
 You can use the shortcode support to add it to your posts or pages.
 
 Example shortcode:
-[weptile-slider imgs='http://url-to-image1.jpg,http://url-to-image2.jpg,http://url-to-image3.jpg' width=700 height=100 responsive=0 effect=boxRandom directionalnav=0 buttonnav=1 pausehover=1 startrandom=1 slices=30]
+[weptile-image-slider items="image=http://url-to-image-1.jpg|link=http://link-of-image-1|target=_blank|caption=Test Caption|alt=Test Alternate Text,image=http://url-to-image-2.jpg|link=http://link-of-image-2|target=_blank|caption=Test Caption|alt=Test Alternate Text" width="700" height="100" responsive="0" effect="boxRandom" directionalnav="0" buttonnav="1" pausehover="1" start-random="1" slices="30" center="0"]
 
 Shortcode Variables:
-imgs : images to rotate in slider. with comma (',') in between url's.
+items : this is a 2 level shortcode variable which includes the images to rotate in slider, their target url when they're clicked (optional), caption and alt text.
 width : number pixel value, without px at the end
 height : number pixel value, without px at the end
 responsive : 0 or 1 (off / on)
 theme : default,light,dark,bar
-directional-nav : 0 or 1 (deafult: 0)
-button-nav : 0 or 1 (deafult: 0)
-pause-hover : 0 or 1 (deafult: 0)
-start-random : 0 or 1 (deafult: 0)
+directional-nav : 0 or 1 (default: 0)
+button-nav : 0 or 1 (default: 0)
+pause-hover : 0 or 1 (default: 0)
+start-random : 0 or 1 (default: 0)
 slices : any integer value (default is 15)
 box-columns : any integer value (default is 8)
 box-rows (sayi degeri olacak, default:4)
 prev-text : any text for the previous button (default:Previous)
 next-text : any text for the next button (default:Next)
-effect : (fade,fold,slideInLeft,slideInRight,random,sliceDown,sliceDownLeft,sliceUp,sliceUpLeft,sliceUpDown,sliceUpDownLeft,boxRandom,boxRain,boxRainReverse,boxRainGrow,boxRainGrowReverse)
+effect : (fade, fold, slideInLeft, slideInRight, random, sliceDown, sliceDownLeft, sliceUp, sliceUpLeft, sliceUpDown, sliceUpDownLeft, boxRandom, boxRain, boxRainReverse, boxRainGrow, boxRainGrowReverse)
+center: 0 or 1 (default: 0)
+
+Change Log:
+1.2.2
+Fixed the bug where captions were mixed up on shuffle.
+1.2.1
+Corrected several language/text mistakes.
+1.2.0
+Moved the cache folder under uploads folder to prevent missing images after plugin update.
+(With this update you need to re-save the widget settings to re-create the cache folder one last time. From this point on, it's all safe for future updates :) )
+Improved UI with larger image, smaller buttons
+Improved widget setting process
+Added image target link, alt text, caption options
+Added slider center align option
+Added link, alt text, caption options to shortcode system
+Changed the whole shortcode system to include the new additions. 
+(Legacy shortcode still works)
+1.1.4
+Added shortcode variable to center align the slider on page
+1.1.0
+Added Shortcode support for posts/pages
+Fixed several bugs in widget update
+
 
 == Installation ==
 
@@ -79,6 +102,10 @@ Yes. It won't conflict with existing nivo scripts.
 = Can we change the appearence of sliders? =
 Yes. There are 4 out of the box themes for our slider widget. You can also add custom themes if you want. All you have to do is create a folder in your /plugins folder and name it as you like (for example: minimal-slider) and put your css and image files in it. In the widget options select that you want to specify a custom theme and write your own theme folder's name (for exmaple: minimal-slider). You can use any available theme css as your theme template to create a new one. One last thing, you must use your theme's name in your css file as a namespace with "theme" prefix (for example: .theme-minimal-slider{ ... } ).
 
+= I can not see images in the slider =
+If this error happened right after the plugin update, resave all widget settings and it'll be fixed once and forall.
+Else, you might want to check your folder permissions for this plugins' cache folder under your uploads folder. 
+
 == Screenshots ==
 
 1. Weptile Image Slider Widget Settings Panel
@@ -88,6 +115,25 @@ Yes. There are 4 out of the box themes for our slider widget. You can also add c
 
 
 == Changelog ==
+
+= 1.2.1 =
+
+* Bug fix: Fixed a bug where admin panel gave an error on servers running with PHP version older than 5.3.
+
+= 1.2.0 =
+
+* Improved UI: Widgete thumbs larger, edit buttons working better and user friendly.
+* Cache folder moved: Moved the plugin cache folder under uploads to prevent broken widgets on each plugin update in the future. 
+* Shortcode changed: Created a new shortcode to allow further options to be used on pages and posts. Old shortcode is still working to be backwards compatible.
+* Title, alt and target link variables added to the shortcode support.
+
+= 1.1.4 =
+
+* Feature added: Center align variable added to in-page slider shortcode
+
+= 1.1.3 =
+
+* Feature added: Shortcode to add slider to page
 
 = 1.0.5 =
 
